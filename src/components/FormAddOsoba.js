@@ -11,8 +11,9 @@ const validationSheme = yup.object().shape({
 
 const FormAddOsoba = ({onFormSubmit}) => {
 
-    const onFormSubmitted = (values) => {
-        document.getElementById('rstBtn').click();
+    const onFormSubmitted = (values,{resetForm}) => {
+        
+        resetForm();
         onFormSubmit(values);
     };
 
