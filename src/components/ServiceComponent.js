@@ -8,7 +8,7 @@ const imgUrls = [
     'https://cdn.mos.cms.futurecdn.net/YB6aQqKZBVjtt3PuDSkJKe.jpg'
 ]
 
-const Service = () => {
+const ServiceComponent = () => {
 
     return (
     <div>
@@ -36,4 +36,4 @@ const Service = () => {
     </div>);
 }
 
-export default Service;
+export default ServiceComponent;
