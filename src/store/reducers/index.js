@@ -14,14 +14,14 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_ARTICLE:
-      return Object.assign({}, state, {
-        articles: state.articles.concat(action.payload),
-      });
+      return {
+         ...state,articles: [...state.articles,action.payload]
+      }
 
     case ADD_PERSON:
-      return Object.assign({}, state, {
-        persons: state.persons.concat(action.payload),
-      });
+      return {
+        ...state,persons: [...state.persons,action.payload]
+      }
 
     default:
       return state;
