@@ -1,11 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-const mapStateToProps = (state) => {
-  return { persons: state.persons };
-};
+const TableOsobeComponent = () => {
 
-const Table = ({ persons }) => {
+  const sveOsobe = useSelector(state => state.persons);
+
   return (
     <div>
       <p> Lista osoba: </p>
@@ -20,8 +19,8 @@ const Table = ({ persons }) => {
           </tr>
         </thead>
 
-        <tbody>
-          {persons.map((osoba) => {
+        <tbody> 
+          {sveOsobe.map((osoba) => {
             return (
               <tr key={osoba.id}>
                 <td>{osoba.id}</td>
@@ -37,7 +36,5 @@ const Table = ({ persons }) => {
     </div>
   );
 };
-
-const TableOsobeComponent = connect(mapStateToProps)(Table);
 
 export default TableOsobeComponent;

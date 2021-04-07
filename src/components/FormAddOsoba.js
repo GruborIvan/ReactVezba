@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addPerson } from '../store/actions/index';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as yup from 'yup';
@@ -11,18 +11,15 @@ const validationSheme = yup.object().shape({
     pol: yup.string().required('Required'),
 });
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addPerson: person => dispatch(addPerson(person))
-    };
-};
 
-const ConnectedForm = ({addPerson}) => {
+const FormAddOsoba = () => {
 
+    const dispatch = useDispatch();
+    
     const onFormSubmitted = (values,{resetForm}) => {
         resetForm();
         values.id = Math.round(Math.random() * 1000);
-        addPerson(values);
+        dispatch(addPerson(values));
     };
 
     return (
@@ -74,9 +71,5 @@ const ConnectedForm = ({addPerson}) => {
     );
 };
 
-const FormAddOsoba = connect(
-    null,
-    mapDispatchToProps
-)(ConnectedForm);
 
 export default FormAddOsoba;

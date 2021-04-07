@@ -12,19 +12,20 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  if (action.type === ADD_ARTICLE) {
-    return Object.assign({}, state, {
-      articles: state.articles.concat(action.payload),
-    });
-  }
+  switch (action.type) {
+    case ADD_ARTICLE:
+      return Object.assign({}, state, {
+        articles: state.articles.concat(action.payload),
+      });
 
-  if (action.type === ADD_PERSON) {
-    return Object.assign({}, state, {
-      persons: state.persons.concat(action.payload),
-    });
-  }
+    case ADD_PERSON:
+      return Object.assign({}, state, {
+        persons: state.persons.concat(action.payload),
+      });
 
-  return state;
+    default:
+      return state;
+  }
 }
 
 export default rootReducer;
