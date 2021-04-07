@@ -8,9 +8,9 @@ const LoadingComponent = () => {
     return (
         <div>
             { loading === true && <div>
-                <div class="ui segment" style={{width: 200,height:70, marginLeft: 480}}>
-                    <div class="ui active inverted dimmer">
-                        <div class="ui small text loader">Loading</div>
+                <div className="ui segment" style={{width: 200,height:70, marginLeft: 480}}>
+                    <div className="ui active inverted dimmer">
+                        <div className="ui small text loader">Loading</div>
                     </div>
                     <p></p>
                 </div>

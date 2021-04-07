@@ -10,14 +10,10 @@ const ButtonComponent = ({onNextClick,onPreviousClick}) => {
         dispatch(getNews());
     };
 
-    const onBtnNextClick = () => {
-        onNextClick();
-    };
-
     return (<div style={{marginLeft: 500, marginTop: 30}}> 
-        <button className="ui secondary button" onClick={onPreviousClick}> Previous article </button>
+        <button className="ui secondary button" onClick={() => onPreviousClick()}> Previous article </button>
         <button className="ui primary button" onClick={onBtnClick}> Press to see news </button>
-        <button className="ui secondary button" onClick={onBtnNextClick}> Next article </button>
+        <button className="ui secondary button" onClick={() => onNextClick()}> Next article </button>
     </div>);
 
 };
