@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, ADD_PERSON } from "../../constants/action-types";
+import { ADD_ARTICLE, ADD_PERSON, GET_NEWS, NEWS_RECEIVED } from "../../constants/action-types";
 
 const osobeBase = [
   { id: 1, ime: "John", prezime: "Smith", godiste: 1993, pol: "Muski" },
@@ -9,6 +9,8 @@ const osobeBase = [
 const initialState = {
   persons: osobeBase,
   articles: [],
+  loading: false,
+  news: [],
 };
 
 function rootReducer(state = initialState, action) {
@@ -22,6 +24,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,persons: [...state.persons,action.payload]
       }
+
+    case GET_NEWS:
+      return { ...state, loading: true }
+
+    case NEWS_RECEIVED: 
+      return { ...state, news: action.json, loading: false }
 
     default:
       return state;
