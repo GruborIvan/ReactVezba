@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addPerson } from '../store/actions/index';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as yup from 'yup';
 
@@ -9,12 +11,15 @@ const validationSheme = yup.object().shape({
     pol: yup.string().required('Required'),
 });
 
-const FormAddOsoba = ({onFormSubmit}) => {
 
+const FormAddOsoba = () => {
+
+    const dispatch = useDispatch();
+    
     const onFormSubmitted = (values,{resetForm}) => {
-        
         resetForm();
-        onFormSubmit(values);
+        values.id = Math.round(Math.random() * 1000);
+        dispatch(addPerson(values));
     };
 
     return (
@@ -51,7 +56,6 @@ const FormAddOsoba = ({onFormSubmit}) => {
                         <datalist id="lst">
                             <option> Muski </option>
                             <option> Zenski </option>
-                            <option> Muski </option>
                         </datalist>
                         <ErrorMessage name="pol"/>
                        
@@ -64,10 +68,8 @@ const FormAddOsoba = ({onFormSubmit}) => {
             </Formik>
 
         </div>
-       
-
-
     );
 };
+
 
 export default FormAddOsoba;
