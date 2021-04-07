@@ -6,7 +6,7 @@ const Header = () => {
         <div style={{marginLeft: 600, marginTop: 5}}>
             <Link to="/" className="ui primary button"> React Forms </Link>
             <Link to="/service" className="ui secondary button"> React Routing </Link>
-            <Link to="/about" className="ui primary button"> About </Link>
+            <Link to="/about" className="ui primary button"> News Articles - React Saga </Link>
         </div>
     </div>);
 };
